@@ -6,12 +6,11 @@
 }
 
 body {
-  background-color: #212a3e;
+  background-color: #f1f6f9;
   font-family: "Phudu", cursive;
 }
 
 .container {
-  /* width: 80%; */
   height: auto;
   text-align: center;
   padding: 5%;
@@ -29,25 +28,85 @@ body {
 }
 
 h1 {
+  color: #212a3e;
+}
+
+.card {
   color: #f1f6f9;
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  animation: ease-in-out;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  cursor: pointer;
+}
+
+.card {
+  width: 200px;
+  height: 200px;
+  perspective: 1000px;
 }
 
 img {
   width: 200px;
   height: 200px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  box-shadow: 2px 2px 1px -1px #F1F6F9;
-  -webkit-box-shadow: 2px 2px 1px -1px #F1F6F9;
-  -moz-box-shadow: 2px 2px 1px -1px #F1F6F9;
-  animation: ease-in-out;
-  transition: transform 0.3s;
 }
 
-img:hover {
-  -ms-transform: scale(1.05);
-  -webkit-transform: scale(1.05);
-  box-shadow: 10px 10px 9px -1px #6499E9;
-  -webkit-box-shadow: 10px 10px 9px -1px #6499E9;
-  -moz-box-shadow: 10px 10px 9px -1px #6499E9;
+.card .content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card:hover .content {
+  transform: rotateY(180deg);
+}
+
+.card .front,
+.card .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.front {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+span:nth-child(1) {
+  transform: rotate(180deg);
+  margin-left: -50%;
+}
+
+hr {
+  width: 100%;
+}
+
+.card .front {
+  background-color: #212a3e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(0deg);
+}
+
+.card .back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+  color: white;
 }
